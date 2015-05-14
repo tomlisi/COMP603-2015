@@ -1,0 +1,16 @@
+1. I looked at cpython.
+
+2. Parse: I found this one in cpython/parser/parser.c 
+		The code here, note I don't really know c, looked like it would be looking through some sort of a stack for something
+	
+   AST: I found this little guy in cypython/Python/ast.c
+		I didn't know what AST was until I opened this file and it is abstract syntax tree but I dont really know what that means
+
+   Scan/Lex/Toxenize: Don't know what this is/couldn't really find it
+
+    Optimization and Code generation, I also couldn't find
+
+
+3. Not ridiculous but I thought it was interesting to see a whole section for PCbuild with different support for a bunch of different circumstances. I also figured it needed this but I never saw it until now.
+
+I'm sorry this is bad, I don't really know any of this stuff yet :(
