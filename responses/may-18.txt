@@ -1,6 +1,7 @@
 What does it mean for two sets to be disjoint?
 
-
+two sets are disjoint if their intersection doesn't equal 0
 
 What is the union of two sets?
 
+where an object belongs to a set of objects
