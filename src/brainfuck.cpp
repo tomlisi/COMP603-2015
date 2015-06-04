@@ -162,21 +162,26 @@ class Printer : public Visitor {
 
 class Interpreter : public Visitor {
     char memory[30000];
-    int pointer;
+    int curPos;
     public:
         void visit(const CommandNode * leaf) {
             switch (leaf->command) {
                 case INCREMENT:
+                    memory[curPos]++;
                     break;
                 case DECREMENT:
+                    memory[curPos]--;
                     break;
                 case SHIFT_LEFT:
+                    curPos--;
                     break;
                 case SHIFT_RIGHT:
+                    curPos++;
                     break;
                 case INPUT:
                     break;
                 case OUTPUT:
+                    cout << memory[curPos];
                     break;
             }
         }
@@ -184,12 +189,20 @@ class Interpreter : public Visitor {
             for (vector<Node*>::const_iterator it = loop->children.begin(); it != loop->children.end(); ++it) {
                 (*it)->accept(this);
             }
+            if(memory[curPos] != 0){
+                visit(loop);
+            }
         }
         void visit(const Program * program) {
             // zero init the memory array
             // set pointer to zero
+            curPos = 0;
+            for (int i = 0; i < 3000; i++){
+                memory[i] = 0;
+            }
             for (vector<Node*>::const_iterator it = program->children.begin(); it != program->children.end(); ++it) {
                 (*it)->accept(this);
+
             }
         }
 };
